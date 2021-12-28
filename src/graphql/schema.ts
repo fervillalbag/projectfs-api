@@ -60,6 +60,13 @@ const typeDefs = gql`
     reviews: [ReviewItem]
   }
 
+  type AboutPage {
+    id: ID
+    title: String
+    description: [Description]
+    image: String
+  }
+
   # Inputs
 
   input CreateUser {
@@ -105,6 +112,12 @@ const typeDefs = gql`
     reviews: [ReviewItemInput]
   }
 
+  input AboutPageInput {
+    title: String
+    description: [DescriptionInput]
+    image: String
+  }
+
   # Query
 
   type Query {
@@ -120,6 +133,9 @@ const typeDefs = gql`
 
     # Review
     getReviewHome: ReviewHome
+
+    # About
+    getAboutPage: AboutPage
   }
 
   type Mutation {
@@ -136,6 +152,9 @@ const typeDefs = gql`
 
     # Review
     createReviewHome(input: ReviewHomeInput!): MutationResponse
+
+    # About
+    createAboutPage(input: AboutPageInput!): MutationResponse
   }
 `;
 
