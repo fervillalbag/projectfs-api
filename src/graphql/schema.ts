@@ -47,6 +47,19 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type ReviewItem {
+    id: String
+    name: String
+    avatar: String
+    description: [Description]
+  }
+
+  type ReviewHome {
+    id: ID
+    title: String
+    reviews: [ReviewItem]
+  }
+
   # Inputs
 
   input CreateUser {
@@ -80,6 +93,18 @@ const typeDefs = gql`
     items: [GrowthItemInput]
   }
 
+  input ReviewItemInput {
+    id: String
+    name: String
+    avatar: String
+    description: [DescriptionInput]
+  }
+
+  input ReviewHomeInput {
+    title: String
+    reviews: [ReviewItemInput]
+  }
+
   # Query
 
   type Query {
@@ -92,6 +117,9 @@ const typeDefs = gql`
 
     # Growth
     getGrowthHome: GrowthHome
+
+    # Review
+    getReviewHome: ReviewHome
   }
 
   type Mutation {
@@ -105,6 +133,9 @@ const typeDefs = gql`
     # Growth
     createGrowthHome(input: GrowthHomeInput!): MutationResponse
     updateGrowthHome(input: GrowthHomeInput): MutationResponse
+
+    # Review
+    createReviewHome(input: ReviewHomeInput!): MutationResponse
   }
 `;
 

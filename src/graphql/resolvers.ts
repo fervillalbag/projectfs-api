@@ -1,6 +1,7 @@
 import headerHome from "../controllers/headerHome";
 import userController from "../controllers/user";
 import growthController from "../controllers/growth";
+import reviewController from "../controllers/review";
 
 const resolvers = {
   Query: {
@@ -14,6 +15,9 @@ const resolvers = {
 
     // Growth
     getGrowthHome: () => growthController.getGrowthHome(),
+
+    // Review
+    getReviewHome: () => reviewController.getReviewHome(),
   },
 
   Mutation: {
@@ -32,6 +36,10 @@ const resolvers = {
       growthController.createGrowthHome(input),
     updateGrowthHome: (_: any, { input }: { input: any }) =>
       growthController.updateGrowthHome(input),
+
+    // Review
+    createReviewHome: (_: any, { input }: { input: any }) =>
+      reviewController.createReviewHome(input),
   },
 };
 
