@@ -25,7 +25,25 @@ const createAboutPage = async (input: any) => {
   }
 };
 
+const updateAboutPage = async (input: any) => {
+  try {
+    await AboutModel.findOneAndUpdate(input);
+    return {
+      message: "Actualizado correctamente",
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+
+    return {
+      message: "Hubo un problema al actualizar",
+      success: false,
+    };
+  }
+};
+
 export default {
+  updateAboutPage,
   getAboutPage,
   createAboutPage,
 };

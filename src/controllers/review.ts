@@ -28,7 +28,24 @@ const createReviewHome = async (input: any) => {
   }
 };
 
+const updateReviewHome = async (input: any) => {
+  try {
+    await ReviewModel.findOneAndUpdate(input);
+    return {
+      message: "Actualizado correctamente",
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      message: "Hubo un problema al actualizar.",
+      success: false,
+    };
+  }
+};
+
 export default {
+  updateReviewHome,
   getReviewHome,
   createReviewHome,
 };

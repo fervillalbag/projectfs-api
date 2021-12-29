@@ -44,9 +44,13 @@ const resolvers = {
     // Review
     createReviewHome: (_: any, { input }: { input: any }) =>
       reviewController.createReviewHome(input),
+    updateReviewHome: (_: any, { input }: { input: any }) =>
+      reviewController.updateReviewHome(input),
 
     createAboutPage: (_: any, { input }: { input: any }) =>
       aboutController.createAboutPage(input),
+    updateAboutPage: (_: any, { input }: { input: any }) =>
+      aboutController.updateAboutPage(input),
   },
 };
 

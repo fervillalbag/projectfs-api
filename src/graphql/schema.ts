@@ -152,9 +152,11 @@ const typeDefs = gql`
 
     # Review
     createReviewHome(input: ReviewHomeInput!): MutationResponse
+    updateReviewHome(input: ReviewHomeInput): MutationResponse
 
     # About
     createAboutPage(input: AboutPageInput!): MutationResponse
+    updateAboutPage(input: AboutPageInput): MutationResponse
   }
 `;
 
