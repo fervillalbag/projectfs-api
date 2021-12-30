@@ -3,6 +3,7 @@ import userController from "../controllers/user";
 import growthController from "../controllers/growth";
 import reviewController from "../controllers/review";
 import aboutController from "../controllers/about";
+import productController from "../controllers/product";
 
 const resolvers = {
   Query: {
@@ -22,6 +23,9 @@ const resolvers = {
 
     // About
     getAboutPage: () => aboutController.getAboutPage(),
+
+    // Product
+    getProducts: () => productController.getProducts(),
   },
 
   Mutation: {
@@ -51,6 +55,11 @@ const resolvers = {
       aboutController.createAboutPage(input),
     updateAboutPage: (_: any, { input }: { input: any }) =>
       aboutController.updateAboutPage(input),
+
+    createProduct: (_: any, { input }: { input: any }) =>
+      productController.createProduct(input),
+    updateProduct: (_: any, { input }: { input: any }) =>
+      productController.updateProduct(input),
   },
 };
 

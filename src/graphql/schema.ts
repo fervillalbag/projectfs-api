@@ -67,6 +67,15 @@ const typeDefs = gql`
     image: String
   }
 
+  type Product {
+    id: ID
+    name: String
+    code: Int
+    price: Int
+    image: String
+    createdAt: String
+  }
+
   # Inputs
 
   input CreateUser {
@@ -118,6 +127,13 @@ const typeDefs = gql`
     image: String
   }
 
+  input ProductInput {
+    name: String
+    code: Int
+    price: Int
+    image: String
+  }
+
   # Query
 
   type Query {
@@ -136,6 +152,9 @@ const typeDefs = gql`
 
     # About
     getAboutPage: AboutPage
+
+    # Product
+    getProducts: [Product]
   }
 
   type Mutation {
@@ -157,6 +176,10 @@ const typeDefs = gql`
     # About
     createAboutPage(input: AboutPageInput!): MutationResponse
     updateAboutPage(input: AboutPageInput): MutationResponse
+
+    # Product
+    createProduct(input: ProductInput!): MutationResponse
+    updateProduct(input: ProductInput): MutationResponse
   }
 `;
 
