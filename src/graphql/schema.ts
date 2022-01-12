@@ -73,6 +73,7 @@ const typeDefs = gql`
     code: Int
     price: Int
     image: String
+    description: [Description]
     createdAt: String
   }
 
@@ -132,6 +133,7 @@ const typeDefs = gql`
     code: Int
     price: Int
     image: String
+    description: [DescriptionInput]
   }
 
   # Query
@@ -155,6 +157,7 @@ const typeDefs = gql`
 
     # Product
     getProducts: [Product]
+    getProduct(id: ID!): Product
   }
 
   type Mutation {

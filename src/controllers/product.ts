@@ -10,6 +10,16 @@ const getProducts = async () => {
   }
 };
 
+const getProduct = async (id: string) => {
+  try {
+    const product = await ProductModel.findById(id);
+    return product;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 const createProduct = async (input: any) => {
   try {
     const product = await new ProductModel(input);
@@ -29,11 +39,24 @@ const createProduct = async (input: any) => {
 };
 
 const updateProduct = async (input: any) => {
-  await ProductModel.findOneAndUpdate(input);
+  try {
+    await ProductModel.findOneAndUpdate(input);
+
+    return {
+      message: "Actualizado correctamente",
+      success: true,
+    };
+  } catch (error) {
+    return {
+      message: "Hubo un problema al actualizar",
+      success: false,
+    };
+  }
 };
 
 export default {
   getProducts,
+  getProduct,
   createProduct,
   updateProduct,
 };

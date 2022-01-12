@@ -17,6 +17,9 @@ const ProductSchema = new Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: Array,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),

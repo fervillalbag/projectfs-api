@@ -26,6 +26,8 @@ const resolvers = {
 
     // Product
     getProducts: () => productController.getProducts(),
+    getProduct: (_: any, { id }: { id: string }) =>
+      productController.getProduct(id),
   },
 
   Mutation: {
