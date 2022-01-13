@@ -4,6 +4,7 @@ import growthController from "../controllers/growth";
 import reviewController from "../controllers/review";
 import aboutController from "../controllers/about";
 import productController from "../controllers/product";
+import planController from "../controllers/plan";
 
 const resolvers = {
   Query: {
@@ -66,6 +67,10 @@ const resolvers = {
       productController.updateProduct(input),
     deleteProduct: (_: any, { id }: { id: any }) =>
       productController.deleteProduct(id),
+
+    // Product
+    createPlan: (_: any, { input }: { input: any }) =>
+      planController.createPlan(input),
   },
 };
 

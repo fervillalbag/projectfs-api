@@ -77,6 +77,21 @@ const typeDefs = gql`
     createdAt: String
   }
 
+  type PlansItem {
+    id: ID
+    text: String
+    status: Boolean
+  }
+
+  type Plans {
+    id: ID
+    name: String
+    url: String
+    price: Int
+    items: [PlansItem]
+    createdAt: String
+  }
+
   # Inputs
 
   input CreateUser {
@@ -136,6 +151,19 @@ const typeDefs = gql`
     description: [DescriptionInput]
   }
 
+  input PlansItemInput {
+    id: ID
+    text: String
+    status: Boolean
+  }
+
+  input PlanInput {
+    name: String
+    url: String
+    price: Int
+    items: [PlansItemInput]
+  }
+
   # Query
 
   type Query {
@@ -184,6 +212,9 @@ const typeDefs = gql`
     createProduct(input: ProductInput!): MutationResponse
     updateProduct(input: ProductInput): MutationResponse
     deleteProduct(id: ID!): MutationResponse
+
+    # Plan
+    createPlan(input: PlanInput!): MutationResponse
   }
 `;
 
