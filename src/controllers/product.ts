@@ -54,9 +54,26 @@ const updateProduct = async (input: any) => {
   }
 };
 
+const deleteProduct = async (id: string) => {
+  try {
+    await ProductModel.findOneAndDelete({ _id: id });
+
+    return {
+      message: "Eliminado correctamente",
+      success: true,
+    };
+  } catch (error) {
+    return {
+      message: "Hubo un problema al eliminar",
+      success: false,
+    };
+  }
+};
+
 export default {
   getProducts,
   getProduct,
   createProduct,
   updateProduct,
+  deleteProduct,
 };

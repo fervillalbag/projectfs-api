@@ -53,15 +53,19 @@ const resolvers = {
     updateReviewHome: (_: any, { input }: { input: any }) =>
       reviewController.updateReviewHome(input),
 
+    // About
     createAboutPage: (_: any, { input }: { input: any }) =>
       aboutController.createAboutPage(input),
     updateAboutPage: (_: any, { input }: { input: any }) =>
       aboutController.updateAboutPage(input),
 
+    // Product
     createProduct: (_: any, { input }: { input: any }) =>
       productController.createProduct(input),
     updateProduct: (_: any, { input }: { input: any }) =>
       productController.updateProduct(input),
+    deleteProduct: (_: any, { id }: { id: any }) =>
+      productController.deleteProduct(id),
   },
 };
 

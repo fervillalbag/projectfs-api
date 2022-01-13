@@ -183,6 +183,7 @@ const typeDefs = gql`
     # Product
     createProduct(input: ProductInput!): MutationResponse
     updateProduct(input: ProductInput): MutationResponse
+    deleteProduct(id: ID!): MutationResponse
   }
 `;
 
