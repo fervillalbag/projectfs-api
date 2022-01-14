@@ -5,6 +5,7 @@ import reviewController from "../controllers/review";
 import aboutController from "../controllers/about";
 import productController from "../controllers/product";
 import planController from "../controllers/plan";
+import reviewInfoController from "../controllers/reviewInfo";
 
 const resolvers = {
   Query: {
@@ -21,6 +22,7 @@ const resolvers = {
 
     // Review
     getReviewHome: () => reviewController.getReviewHome(),
+    getReviewInfoHome: () => reviewInfoController.getReviewInfoHome(),
 
     // About
     getAboutPage: () => aboutController.getAboutPage(),
@@ -53,7 +55,9 @@ const resolvers = {
 
     // Review
     createReviewHomeInfo: (_: any, { input }: { input: any }) =>
-      reviewController.createReviewHomeInfo(input),
+      reviewInfoController.createReviewHomeInfo(input),
+    updateReviewHomeInfo: (_: any, { input }: { input: any }) =>
+      reviewInfoController.updateReviewHomeInfo(input),
     createReviewHome: (_: any, { input }: { input: any }) =>
       reviewController.createReviewHome(input),
     updateReviewHome: (_: any, { input }: { input: any }) =>

@@ -28,8 +28,6 @@ const createReviewHome = async (input: any) => {
   }
 };
 
-const createReviewHomeInfo = async (input: any) => {};
-
 const updateReviewHome = async (input: any) => {
   try {
     await ReviewModel.findOneAndUpdate({ _id: input.id }, input);
@@ -67,6 +65,5 @@ export default {
   updateReviewHome,
   getReviewHome,
   createReviewHome,
-  createReviewHomeInfo,
   deleteReviewHome,
 };
