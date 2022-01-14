@@ -1,13 +1,16 @@
 import { Schema, model } from "mongoose";
 
 const ReviewSchema = new Schema({
-  title: {
+  name: {
     type: String,
     required: true,
   },
-  reviews: {
-    type: Array,
+  avatar: {
+    type: String,
     required: true,
+  },
+  description: {
+    type: Array,
   },
 });
 

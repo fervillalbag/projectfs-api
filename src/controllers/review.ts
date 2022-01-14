@@ -2,7 +2,7 @@ import ReviewModel from "../models/review";
 
 const getReviewHome = async () => {
   try {
-    const review = await ReviewModel.findOne({});
+    const review = await ReviewModel.find({});
     return review;
   } catch (error) {
     console.log(error);
@@ -28,9 +28,12 @@ const createReviewHome = async (input: any) => {
   }
 };
 
+const createReviewHomeInfo = async (input: any) => {};
+
 const updateReviewHome = async (input: any) => {
   try {
-    await ReviewModel.findOneAndUpdate(input);
+    await ReviewModel.findOneAndUpdate({ _id: input.id }, input);
+
     return {
       message: "Actualizado correctamente",
       success: true,
@@ -44,8 +47,26 @@ const updateReviewHome = async (input: any) => {
   }
 };
 
+const deleteReviewHome = async (id: string) => {
+  try {
+    await ReviewModel.findOneAndDelete({ _id: id });
+    return {
+      message: "Eliminado correctamente",
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+    return {
+      message: "Hubo un problema al eliminar",
+      success: false,
+    };
+  }
+};
+
 export default {
   updateReviewHome,
   getReviewHome,
   createReviewHome,
+  createReviewHomeInfo,
+  deleteReviewHome,
 };

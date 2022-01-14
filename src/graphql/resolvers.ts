@@ -52,10 +52,14 @@ const resolvers = {
       growthController.updateGrowthHome(input),
 
     // Review
+    createReviewHomeInfo: (_: any, { input }: { input: any }) =>
+      reviewController.createReviewHomeInfo(input),
     createReviewHome: (_: any, { input }: { input: any }) =>
       reviewController.createReviewHome(input),
     updateReviewHome: (_: any, { input }: { input: any }) =>
       reviewController.updateReviewHome(input),
+    deleteReviewHome: (_: any, { id }: { id: any }) =>
+      reviewController.deleteReviewHome(id),
 
     // About
     createAboutPage: (_: any, { input }: { input: any }) =>

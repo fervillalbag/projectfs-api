@@ -47,17 +47,11 @@ const typeDefs = gql`
     createdAt: String
   }
 
-  type ReviewItem {
-    id: String
+  type Review {
+    id: ID
     name: String
     avatar: String
     description: [Description]
-  }
-
-  type ReviewHome {
-    id: ID
-    title: String
-    reviews: [ReviewItem]
   }
 
   type AboutPage {
@@ -125,16 +119,16 @@ const typeDefs = gql`
     items: [GrowthItemInput]
   }
 
-  input ReviewItemInput {
-    id: String
+  input ReviewInput {
+    id: ID
     name: String
     avatar: String
     description: [DescriptionInput]
   }
 
-  input ReviewHomeInput {
+  input ReviewHomeInfoInput {
     title: String
-    reviews: [ReviewItemInput]
+    description: [DescriptionInput]
   }
 
   input AboutPageInput {
@@ -178,7 +172,7 @@ const typeDefs = gql`
     getGrowthHome: GrowthHome
 
     # Review
-    getReviewHome: ReviewHome
+    getReviewHome: [Review]
 
     # About
     getAboutPage: AboutPage
@@ -204,8 +198,11 @@ const typeDefs = gql`
     updateGrowthHome(input: GrowthHomeInput): MutationResponse
 
     # Review
-    createReviewHome(input: ReviewHomeInput!): MutationResponse
-    updateReviewHome(input: ReviewHomeInput): MutationResponse
+    createReviewHomeInfo(input: ReviewHomeInfoInput): MutationResponse
+
+    createReviewHome(input: ReviewInput!): MutationResponse
+    updateReviewHome(input: ReviewInput): MutationResponse
+    deleteReviewHome(id: ID!): MutationResponse
 
     # About
     createAboutPage(input: AboutPageInput!): MutationResponse
