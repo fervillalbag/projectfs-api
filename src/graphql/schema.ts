@@ -83,7 +83,7 @@ const typeDefs = gql`
     status: Boolean
   }
 
-  type Plans {
+  type Plan {
     id: ID
     name: String
     url: String
@@ -186,6 +186,9 @@ const typeDefs = gql`
     # Product
     getProducts: [Product]
     getProduct(id: ID!): Product
+
+    # Plan
+    getPlans: [Plan]
   }
 
   type Mutation {
@@ -215,6 +218,7 @@ const typeDefs = gql`
 
     # Plan
     createPlan(input: PlanInput!): MutationResponse
+    updatePlan(input: PlanInput): MutationResponse
   }
 `;
 

@@ -29,6 +29,9 @@ const resolvers = {
     getProducts: () => productController.getProducts(),
     getProduct: (_: any, { id }: { id: string }) =>
       productController.getProduct(id),
+
+    // Plans
+    getPlans: () => planController.getPlans(),
   },
 
   Mutation: {
@@ -71,6 +74,8 @@ const resolvers = {
     // Product
     createPlan: (_: any, { input }: { input: any }) =>
       planController.createPlan(input),
+    updatePlan: (_: any, { input }: { input: any }) =>
+      planController.updatePlan(input),
   },
 };
 

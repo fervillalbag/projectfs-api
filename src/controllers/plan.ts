@@ -1,5 +1,15 @@
 import PlanModel from "../models/plan";
 
+const getPlans = async () => {
+  try {
+    const plans = await PlanModel.find({});
+    return plans;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};
+
 const createPlan = async (input: any) => {
   try {
     const plan = new PlanModel(input);
@@ -19,6 +29,26 @@ const createPlan = async (input: any) => {
   }
 };
 
+const updatePlan = async (input: any) => {
+  try {
+    await PlanModel.findOneAndUpdate(input);
+
+    return {
+      message: "Actualizado correctamente",
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+
+    return {
+      message: "Hubo un problema al actualizar",
+      success: false,
+    };
+  }
+};
+
 export default {
   createPlan,
+  getPlans,
+  updatePlan,
 };
