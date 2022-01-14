@@ -76,6 +76,8 @@ const resolvers = {
       planController.createPlan(input),
     updatePlan: (_: any, { input }: { input: any }) =>
       planController.updatePlan(input),
+    deletePlan: (_: any, { id }: { id: string }) =>
+      planController.deletePlan(id),
   },
 };
 

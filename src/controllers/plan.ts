@@ -47,8 +47,26 @@ const updatePlan = async (input: any) => {
   }
 };
 
+const deletePlan = async (id: string) => {
+  try {
+    await PlanModel.findOneAndDelete({ _id: id });
+    return {
+      message: "Eliminado correctamente",
+      success: true,
+    };
+  } catch (error) {
+    console.log(error);
+
+    return {
+      message: "Hubo un problema al eliminar",
+      success: false,
+    };
+  }
+};
+
 export default {
   createPlan,
   getPlans,
   updatePlan,
+  deletePlan,
 };

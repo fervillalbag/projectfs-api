@@ -219,6 +219,7 @@ const typeDefs = gql`
     # Plan
     createPlan(input: PlanInput!): MutationResponse
     updatePlan(input: PlanInput): MutationResponse
+    deletePlan(id: ID!): MutationResponse
   }
 `;
 
